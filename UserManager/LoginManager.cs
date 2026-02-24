@@ -7,6 +7,11 @@ namespace GoodsFlow.UserManager;
 
 public class LoginManager
 {
+    public struct SaltedEntry(string Entry, string Salt){
+        public readonly string Entry = Entry;
+        public readonly string Salt = Salt;
+    }
+
     /// <summary>
     /// Creates a pile of salt attachable to a hash input
     /// </summary>
@@ -32,11 +37,9 @@ public class LoginManager
     /// Computes the hash for a given input, creating a new salt for it
     /// </summary>
     /// <param name="Input">Text to hash</param>
-    /// <param name="Salt">Created salt pile</param>
     /// <returns>Computed hash and salt</returns>
-    public static string Hash(string Input, out string Salt) {
-        Salt = GenSalt(10);
-        return Hash(Input, Salt);
+    public static SaltedEntry Hash(string Input) {
+        return Hash(Input, GenSalt(10));
     }
 
     /// <summary>
@@ -45,12 +48,22 @@ public class LoginManager
     /// <param name="Input">Text to hash</param>
     /// <param name="Salt">Previously generated salt</param>
     /// <returns>Computed hash from the salted input</returns>
-    public static string Hash(string Input, string Salt) {
+    public static SaltedEntry Hash(string Input, string Salt) {
+        return new SaltedEntry(RawHash(Salt+Input), Salt);
+    }
+
+    /// <summary>
+    /// Computes the SHA256 hash of the given input
+    /// </summary>
+    /// <param name="Input">Text to hash</param>
+    /// <returns>Computed hash from given string</returns>
+    public static string RawHash(string Input) {
         StringBuilder Hashed = new();
 
-        byte[] Result = SHA256.HashData(Encoding.UTF8.GetBytes(Salt+Input));
+        byte[] Result = SHA256.HashData(Encoding.UTF8.GetBytes(Input));
 
-        foreach (byte C in Result) {
+        foreach (byte C in Result)
+        {
             Hashed.Append(C.ToString("x2"));
         }
 
