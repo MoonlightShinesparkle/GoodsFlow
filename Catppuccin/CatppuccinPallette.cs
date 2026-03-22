@@ -27,13 +27,15 @@ public enum CatppuccinColor
     Mauve,
     Pink,
     Flamingo,
-    Rosewater
+    Rosewater,
+    Transparent
 }
 
 public class CatppuccinPallette {
     public static bool DarkTheme = true;
 
-    private static readonly Dictionary<CatppuccinColor, Color> Mocha = new() {
+    private static readonly Dictionary<CatppuccinColor, Color> Mocha = new()
+    {
         [CatppuccinColor.Crust] = ColorTranslator.FromHtml("#11111b"),
         [CatppuccinColor.Mantle] = ColorTranslator.FromHtml("#181825"),
         [CatppuccinColor.Base] = ColorTranslator.FromHtml("#1e1e2e"),
@@ -59,7 +61,8 @@ public class CatppuccinPallette {
         [CatppuccinColor.Mauve] = ColorTranslator.FromHtml("#cba6f7"),
         [CatppuccinColor.Pink] = ColorTranslator.FromHtml("#cba6f7"),
         [CatppuccinColor.Flamingo] = ColorTranslator.FromHtml("#f5c2e7"),
-        [CatppuccinColor.Rosewater] = ColorTranslator.FromHtml("#f2cdcd")
+        [CatppuccinColor.Rosewater] = ColorTranslator.FromHtml("#f2cdcd"),
+        [CatppuccinColor.Transparent] = Color.Transparent
     };
 
     private static readonly Dictionary<CatppuccinColor, Color> Latte = new() {
@@ -88,7 +91,8 @@ public class CatppuccinPallette {
         [CatppuccinColor.Mauve] = ColorTranslator.FromHtml("#8839ef"),
         [CatppuccinColor.Pink] = ColorTranslator.FromHtml("#ea76cb"),
         [CatppuccinColor.Flamingo] = ColorTranslator.FromHtml("#dd7878"),
-        [CatppuccinColor.Rosewater] = ColorTranslator.FromHtml("#dc8a78")
+        [CatppuccinColor.Rosewater] = ColorTranslator.FromHtml("#dc8a78"),
+        [CatppuccinColor.Transparent] = Color.Transparent
     };
 
     public static Color GetColor(CatppuccinColor Name)
