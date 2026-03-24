@@ -1,11 +1,4 @@
 ﻿using GoodsFlow.Catppuccin.Components;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
-using System.Windows.Forms;
 
 namespace GoodsFlow.Windows
 {
@@ -18,7 +11,10 @@ namespace GoodsFlow.Windows
 
         private void Dashboard_Load(object sender, EventArgs e)
         {
-
+            if (Screen.PrimaryScreen is null) { return; }
+            Width = Screen.PrimaryScreen.WorkingArea.Width / 2;
+            Height = Screen.PrimaryScreen.WorkingArea.Height / 2;
+            CenterToScreen();
         }
     }
 }

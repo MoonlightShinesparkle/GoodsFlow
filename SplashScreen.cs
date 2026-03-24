@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GoodsFlow.Windows;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,6 +14,14 @@ namespace GoodsFlow
         public SplashScreen()
         {
             InitializeComponent();
+        }
+
+        public bool Loaded = false;
+
+        public void LoadData()
+        {
+            // Load data
+            Loaded = true;
         }
     }
 }

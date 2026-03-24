@@ -32,7 +32,7 @@ public enum CatppuccinColor
 }
 
 public class CatppuccinPallette {
-    public static bool DarkTheme = true;
+    public static bool DarkTheme = false;
 
     private static readonly Dictionary<CatppuccinColor, Color> Mocha = new()
     {
