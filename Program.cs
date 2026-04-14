@@ -22,12 +22,13 @@ namespace GoodsFlow
 
             while ((Timer.ElapsedMilliseconds < 2000) || !Splash.Loaded)
             {
+                Application.DoEvents(); // <--- linea para que se muestre el splash
             }
 
             Splash.Close();
             Timer.Stop();
-
-            Application.Run(new Dashboard());
+            //perdon moon lo cambie para trabajar jeje
+            Application.Run(new login());
         }
     }
 }
