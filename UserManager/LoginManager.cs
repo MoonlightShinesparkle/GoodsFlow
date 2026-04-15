@@ -17,7 +17,7 @@ public class LoginManager
     /// </summary>
     /// <param name="Size">Ammount of salt crystals to create</param>
     /// <returns>A pile of #Size salt crystals</returns>
-    public static string GenSalt(int Size) {
+    public static string GenSalt(int Size = 10) {
         RandomNumberGenerator Gen = RandomNumberGenerator.Create();
         StringBuilder Salt = new();
 
