@@ -31,14 +31,14 @@
             catppuccinTextBox1 = new GoodsFlow.Catppuccin.Components.CatppuccinTextBox();
             catppuccinLabel1 = new GoodsFlow.Catppuccin.Components.CatppuccinLabel();
             catppuccinDataGridView1 = new GoodsFlow.Catppuccin.Components.CatppuccinDataGridView();
-            catppuccinLabel2 = new GoodsFlow.Catppuccin.Components.CatppuccinLabel();
-            pictureBox2 = new PictureBox();
             ID = new DataGridViewTextBoxColumn();
             Producto = new DataGridViewTextBoxColumn();
             Cantidad = new DataGridViewTextBoxColumn();
             Precio = new DataGridViewTextBoxColumn();
             Marca = new DataGridViewTextBoxColumn();
             Categoria = new DataGridViewTextBoxColumn();
+            catppuccinLabel2 = new GoodsFlow.Catppuccin.Components.CatppuccinLabel();
+            pictureBox2 = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)catppuccinDataGridView1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             SuspendLayout();
@@ -49,9 +49,10 @@
             catppuccinTextBox1.BackgroundColor = Catppuccin.CatppuccinColor.Surface0;
             catppuccinTextBox1.ForeColor = Color.FromArgb(64, 160, 43);
             catppuccinTextBox1.ForegroundColor = Catppuccin.CatppuccinColor.Green;
-            catppuccinTextBox1.Location = new Point(29, 77);
+            catppuccinTextBox1.Location = new Point(47, 123);
+            catppuccinTextBox1.Margin = new Padding(5, 5, 5, 5);
             catppuccinTextBox1.Name = "catppuccinTextBox1";
-            catppuccinTextBox1.Size = new Size(739, 27);
+            catppuccinTextBox1.Size = new Size(1198, 39);
             catppuccinTextBox1.TabIndex = 0;
             // 
             // catppuccinLabel1
@@ -60,54 +61,32 @@
             catppuccinLabel1.BackColor = Color.Transparent;
             catppuccinLabel1.BackgroundColor = Catppuccin.CatppuccinColor.Transparent;
             catppuccinLabel1.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
-            catppuccinLabel1.ForeColor = Color.FromArgb(76, 79, 105);
-            catppuccinLabel1.ForegroundColor = Catppuccin.CatppuccinColor.Text;
-            catppuccinLabel1.Location = new Point(12, 9);
+            catppuccinLabel1.ForeColor = Color.FromArgb(30, 102, 245);
+            catppuccinLabel1.ForegroundColor = Catppuccin.CatppuccinColor.Blue;
+            catppuccinLabel1.Location = new Point(20, 14);
+            catppuccinLabel1.Margin = new Padding(5, 0, 5, 0);
             catppuccinLabel1.Name = "catppuccinLabel1";
-            catppuccinLabel1.Size = new Size(109, 28);
+            catppuccinLabel1.Size = new Size(173, 45);
             catppuccinLabel1.TabIndex = 1;
             catppuccinLabel1.Text = "Inventario";
             // 
             // catppuccinDataGridView1
             // 
             catppuccinDataGridView1.BackgroundColor = Color.FromArgb(230, 233, 239);
-            catppuccinDataGridView1.CBackgroundColor = Catppuccin.CatppuccinColor.Mantle;
+            catppuccinDataGridView1.CBackgroundColor = Catppuccin.CatppuccinColor.Base;
             catppuccinDataGridView1.CGridColor = Catppuccin.CatppuccinColor.Crust;
             catppuccinDataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             catppuccinDataGridView1.Columns.AddRange(new DataGridViewColumn[] { ID, Producto, Cantidad, Precio, Marca, Categoria });
             catppuccinDataGridView1.DataBackgroundColor = Catppuccin.CatppuccinColor.Mantle;
             catppuccinDataGridView1.ForegroundColor = Catppuccin.CatppuccinColor.Sky;
             catppuccinDataGridView1.GridColor = Color.FromArgb(220, 224, 232);
-            catppuccinDataGridView1.Location = new Point(29, 123);
+            catppuccinDataGridView1.Location = new Point(47, 197);
+            catppuccinDataGridView1.Margin = new Padding(5, 5, 5, 5);
             catppuccinDataGridView1.Name = "catppuccinDataGridView1";
             catppuccinDataGridView1.ReadOnly = true;
             catppuccinDataGridView1.RowHeadersWidth = 51;
-            catppuccinDataGridView1.Size = new Size(759, 267);
+            catppuccinDataGridView1.Size = new Size(1233, 427);
             catppuccinDataGridView1.TabIndex = 2;
-            // 
-            // catppuccinLabel2
-            // 
-            catppuccinLabel2.AutoSize = true;
-            catppuccinLabel2.BackColor = Color.Transparent;
-            catppuccinLabel2.BackgroundColor = Catppuccin.CatppuccinColor.Transparent;
-            catppuccinLabel2.ForeColor = Color.FromArgb(76, 79, 105);
-            catppuccinLabel2.ForegroundColor = Catppuccin.CatppuccinColor.Text;
-            catppuccinLabel2.Location = new Point(29, 54);
-            catppuccinLabel2.Name = "catppuccinLabel2";
-            catppuccinLabel2.Size = new Size(244, 20);
-            catppuccinLabel2.TabIndex = 3;
-            catppuccinLabel2.Text = "Consulta existencia en el inventario:";
-            // 
-            // pictureBox2
-            // 
-            pictureBox2.Image = Properties.Resources.fondo_;
-            pictureBox2.Location = new Point(-29, 396);
-            pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(1047, 62);
-            pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox2.TabIndex = 9;
-            pictureBox2.TabStop = false;
-            pictureBox2.Click += pictureBox2_Click;
             // 
             // ID
             // 
@@ -157,16 +136,43 @@
             Categoria.ReadOnly = true;
             Categoria.Width = 125;
             // 
+            // catppuccinLabel2
+            // 
+            catppuccinLabel2.AutoSize = true;
+            catppuccinLabel2.BackColor = Color.Transparent;
+            catppuccinLabel2.BackgroundColor = Catppuccin.CatppuccinColor.Transparent;
+            catppuccinLabel2.ForeColor = Color.FromArgb(76, 79, 105);
+            catppuccinLabel2.ForegroundColor = Catppuccin.CatppuccinColor.Text;
+            catppuccinLabel2.Location = new Point(47, 86);
+            catppuccinLabel2.Margin = new Padding(5, 0, 5, 0);
+            catppuccinLabel2.Name = "catppuccinLabel2";
+            catppuccinLabel2.Size = new Size(397, 32);
+            catppuccinLabel2.TabIndex = 3;
+            catppuccinLabel2.Text = "Consulta existencia en el inventario:";
+            // 
+            // pictureBox2
+            // 
+            pictureBox2.Image = Properties.Resources.fondo_;
+            pictureBox2.Location = new Point(-47, 634);
+            pictureBox2.Margin = new Padding(5, 5, 5, 5);
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.Size = new Size(1701, 99);
+            pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox2.TabIndex = 9;
+            pictureBox2.TabStop = false;
+            pictureBox2.Click += pictureBox2_Click;
+            // 
             // Inventario
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(13F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(1300, 720);
             Controls.Add(pictureBox2);
             Controls.Add(catppuccinLabel2);
             Controls.Add(catppuccinDataGridView1);
             Controls.Add(catppuccinLabel1);
             Controls.Add(catppuccinTextBox1);
+            Margin = new Padding(5, 5, 5, 5);
             Name = "Inventario";
             Text = "Inventario";
             ((System.ComponentModel.ISupportInitialize)catppuccinDataGridView1).EndInit();

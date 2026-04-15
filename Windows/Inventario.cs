@@ -5,10 +5,11 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
+using GoodsFlow.Catppuccin.Components;
 
 namespace GoodsFlow.Windows
 {
-    public partial class Inventario : Form
+    public partial class Inventario : CatppuccinForm
     {
         public Inventario()
         {
