@@ -65,8 +65,10 @@
             PasswordIn.Location = new Point(666, 612);
             PasswordIn.Margin = new Padding(5);
             PasswordIn.Name = "PasswordIn";
+            PasswordIn.PasswordChar = '*';
             PasswordIn.Size = new Size(820, 39);
             PasswordIn.TabIndex = 1;
+            PasswordIn.UseSystemPasswordChar = true;
             // 
             // catppuccinLabel1
             // 
@@ -141,6 +143,7 @@
             LoginBtn.TabIndex = 6;
             LoginBtn.Text = "Login";
             LoginBtn.UseVisualStyleBackColor = false;
+            LoginBtn.Click += LoginBtn_Click;
             // 
             // pictureBox1
             // 
@@ -205,6 +208,7 @@
             CreateBtn.TabIndex = 11;
             CreateBtn.Text = "Crear nueva tienda";
             CreateBtn.UseVisualStyleBackColor = false;
+            CreateBtn.Click += CreateBtn_Click;
             // 
             // login
             // 
