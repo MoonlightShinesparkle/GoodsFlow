@@ -28,40 +28,45 @@
         /// </summary>
         private void InitializeComponent()
         {
-            catppuccinTextBox1 = new GoodsFlow.Catppuccin.Components.CatppuccinTextBox();
-            catppuccinTextBox2 = new GoodsFlow.Catppuccin.Components.CatppuccinTextBox();
+            UserIn = new GoodsFlow.Catppuccin.Components.CatppuccinTextBox();
+            PasswordIn = new GoodsFlow.Catppuccin.Components.CatppuccinTextBox();
             catppuccinLabel1 = new GoodsFlow.Catppuccin.Components.CatppuccinLabel();
             catppuccinLabel2 = new GoodsFlow.Catppuccin.Components.CatppuccinLabel();
             catppuccinLabel3 = new GoodsFlow.Catppuccin.Components.CatppuccinLabel();
             catppuccinLabel4 = new GoodsFlow.Catppuccin.Components.CatppuccinLabel();
-            catppuccinButton1 = new GoodsFlow.Catppuccin.Components.CatppuccinButton();
+            LoginBtn = new GoodsFlow.Catppuccin.Components.CatppuccinButton();
             pictureBox1 = new PictureBox();
             pictureBox2 = new PictureBox();
+            catppuccinLabel5 = new GoodsFlow.Catppuccin.Components.CatppuccinLabel();
+            StoreIn = new GoodsFlow.Catppuccin.Components.CatppuccinTextBox();
+            CreateBtn = new GoodsFlow.Catppuccin.Components.CatppuccinButton();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             SuspendLayout();
             // 
-            // catppuccinTextBox1
+            // UserIn
             // 
-            catppuccinTextBox1.BackColor = Color.FromArgb(204, 208, 218);
-            catppuccinTextBox1.BackgroundColor = Catppuccin.CatppuccinColor.Surface0;
-            catppuccinTextBox1.ForeColor = Color.FromArgb(64, 160, 43);
-            catppuccinTextBox1.ForegroundColor = Catppuccin.CatppuccinColor.Green;
-            catppuccinTextBox1.Location = new Point(410, 214);
-            catppuccinTextBox1.Name = "catppuccinTextBox1";
-            catppuccinTextBox1.Size = new Size(319, 27);
-            catppuccinTextBox1.TabIndex = 0;
+            UserIn.BackColor = Color.FromArgb(204, 208, 218);
+            UserIn.BackgroundColor = Catppuccin.CatppuccinColor.Surface0;
+            UserIn.ForeColor = Color.FromArgb(64, 160, 43);
+            UserIn.ForegroundColor = Catppuccin.CatppuccinColor.Green;
+            UserIn.Location = new Point(666, 447);
+            UserIn.Margin = new Padding(5);
+            UserIn.Name = "UserIn";
+            UserIn.Size = new Size(820, 39);
+            UserIn.TabIndex = 0;
             // 
-            // catppuccinTextBox2
+            // PasswordIn
             // 
-            catppuccinTextBox2.BackColor = Color.FromArgb(204, 208, 218);
-            catppuccinTextBox2.BackgroundColor = Catppuccin.CatppuccinColor.Surface0;
-            catppuccinTextBox2.ForeColor = Color.FromArgb(64, 160, 43);
-            catppuccinTextBox2.ForegroundColor = Catppuccin.CatppuccinColor.Green;
-            catppuccinTextBox2.Location = new Point(410, 328);
-            catppuccinTextBox2.Name = "catppuccinTextBox2";
-            catppuccinTextBox2.Size = new Size(319, 27);
-            catppuccinTextBox2.TabIndex = 1;
+            PasswordIn.BackColor = Color.FromArgb(204, 208, 218);
+            PasswordIn.BackgroundColor = Catppuccin.CatppuccinColor.Surface0;
+            PasswordIn.ForeColor = Color.FromArgb(64, 160, 43);
+            PasswordIn.ForegroundColor = Catppuccin.CatppuccinColor.Green;
+            PasswordIn.Location = new Point(666, 612);
+            PasswordIn.Margin = new Padding(5);
+            PasswordIn.Name = "PasswordIn";
+            PasswordIn.Size = new Size(820, 39);
+            PasswordIn.TabIndex = 1;
             // 
             // catppuccinLabel1
             // 
@@ -71,9 +76,10 @@
             catppuccinLabel1.Font = new Font("Segoe UI", 13F, FontStyle.Bold);
             catppuccinLabel1.ForeColor = Color.FromArgb(76, 79, 105);
             catppuccinLabel1.ForegroundColor = Catppuccin.CatppuccinColor.Text;
-            catppuccinLabel1.Location = new Point(369, 61);
+            catppuccinLabel1.Location = new Point(600, 98);
+            catppuccinLabel1.Margin = new Padding(5, 0, 5, 0);
             catppuccinLabel1.Name = "catppuccinLabel1";
-            catppuccinLabel1.Size = new Size(315, 30);
+            catppuccinLabel1.Size = new Size(504, 47);
             catppuccinLabel1.TabIndex = 2;
             catppuccinLabel1.Text = "Bienvenido al inicio de sesión";
             // 
@@ -84,9 +90,10 @@
             catppuccinLabel2.BackgroundColor = Catppuccin.CatppuccinColor.Transparent;
             catppuccinLabel2.ForeColor = Color.FromArgb(76, 79, 105);
             catppuccinLabel2.ForegroundColor = Catppuccin.CatppuccinColor.Text;
-            catppuccinLabel2.Location = new Point(369, 110);
+            catppuccinLabel2.Location = new Point(600, 176);
+            catppuccinLabel2.Margin = new Padding(5, 0, 5, 0);
             catppuccinLabel2.Name = "catppuccinLabel2";
-            catppuccinLabel2.Size = new Size(550, 20);
+            catppuccinLabel2.Size = new Size(886, 32);
             catppuccinLabel2.TabIndex = 3;
             catppuccinLabel2.Text = "No recuerdas tus datos de inicio de sesión? Envia un correo a xxxxxxx@gmail.com";
             // 
@@ -98,9 +105,10 @@
             catppuccinLabel3.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
             catppuccinLabel3.ForeColor = Color.FromArgb(76, 79, 105);
             catppuccinLabel3.ForegroundColor = Catppuccin.CatppuccinColor.Text;
-            catppuccinLabel3.Location = new Point(369, 180);
+            catppuccinLabel3.Location = new Point(600, 393);
+            catppuccinLabel3.Margin = new Padding(5, 0, 5, 0);
             catppuccinLabel3.Name = "catppuccinLabel3";
-            catppuccinLabel3.Size = new Size(67, 20);
+            catppuccinLabel3.Size = new Size(109, 32);
             catppuccinLabel3.TabIndex = 4;
             catppuccinLabel3.Text = "Usuario:";
             // 
@@ -112,32 +120,35 @@
             catppuccinLabel4.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
             catppuccinLabel4.ForeColor = Color.FromArgb(76, 79, 105);
             catppuccinLabel4.ForegroundColor = Catppuccin.CatppuccinColor.Text;
-            catppuccinLabel4.Location = new Point(369, 282);
+            catppuccinLabel4.Location = new Point(600, 556);
+            catppuccinLabel4.Margin = new Padding(5, 0, 5, 0);
             catppuccinLabel4.Name = "catppuccinLabel4";
-            catppuccinLabel4.Size = new Size(92, 20);
+            catppuccinLabel4.Size = new Size(150, 32);
             catppuccinLabel4.TabIndex = 5;
             catppuccinLabel4.Text = "Contraseña:";
             // 
-            // catppuccinButton1
+            // LoginBtn
             // 
-            catppuccinButton1.BackColor = Color.FromArgb(204, 208, 218);
-            catppuccinButton1.BackgroundColor = Catppuccin.CatppuccinColor.Surface0;
-            catppuccinButton1.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
-            catppuccinButton1.ForeColor = Color.FromArgb(32, 159, 181);
-            catppuccinButton1.ForegroundColor = Catppuccin.CatppuccinColor.Sapphire;
-            catppuccinButton1.Location = new Point(462, 454);
-            catppuccinButton1.Name = "catppuccinButton1";
-            catppuccinButton1.Size = new Size(211, 58);
-            catppuccinButton1.TabIndex = 6;
-            catppuccinButton1.Text = "Login";
-            catppuccinButton1.UseVisualStyleBackColor = false;
+            LoginBtn.BackColor = Color.FromArgb(204, 208, 218);
+            LoginBtn.BackgroundColor = Catppuccin.CatppuccinColor.Surface0;
+            LoginBtn.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
+            LoginBtn.ForeColor = Color.FromArgb(32, 159, 181);
+            LoginBtn.ForegroundColor = Catppuccin.CatppuccinColor.Sapphire;
+            LoginBtn.Location = new Point(600, 722);
+            LoginBtn.Margin = new Padding(5);
+            LoginBtn.Name = "LoginBtn";
+            LoginBtn.Size = new Size(433, 93);
+            LoginBtn.TabIndex = 6;
+            LoginBtn.Text = "Login";
+            LoginBtn.UseVisualStyleBackColor = false;
             // 
             // pictureBox1
             // 
             pictureBox1.Image = Properties.Resources.carrito;
-            pictureBox1.Location = new Point(1, 98);
+            pictureBox1.Location = new Point(2, 157);
+            pictureBox1.Margin = new Padding(5);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(344, 309);
+            pictureBox1.Size = new Size(559, 494);
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox1.TabIndex = 7;
             pictureBox1.TabStop = false;
@@ -145,27 +156,74 @@
             // pictureBox2
             // 
             pictureBox2.Image = Properties.Resources.fondo_;
-            pictureBox2.Location = new Point(1, 534);
+            pictureBox2.Location = new Point(2, 854);
+            pictureBox2.Margin = new Padding(5);
             pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(1047, 62);
+            pictureBox2.Size = new Size(1701, 99);
             pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox2.TabIndex = 8;
             pictureBox2.TabStop = false;
             // 
+            // catppuccinLabel5
+            // 
+            catppuccinLabel5.AutoSize = true;
+            catppuccinLabel5.BackColor = Color.Transparent;
+            catppuccinLabel5.BackgroundColor = Catppuccin.CatppuccinColor.Transparent;
+            catppuccinLabel5.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            catppuccinLabel5.ForeColor = Color.FromArgb(76, 79, 105);
+            catppuccinLabel5.ForegroundColor = Catppuccin.CatppuccinColor.Text;
+            catppuccinLabel5.Location = new Point(600, 222);
+            catppuccinLabel5.Margin = new Padding(5, 0, 5, 0);
+            catppuccinLabel5.Name = "catppuccinLabel5";
+            catppuccinLabel5.Size = new Size(98, 32);
+            catppuccinLabel5.TabIndex = 10;
+            catppuccinLabel5.Text = "Tienda:";
+            // 
+            // StoreIn
+            // 
+            StoreIn.BackColor = Color.FromArgb(204, 208, 218);
+            StoreIn.BackgroundColor = Catppuccin.CatppuccinColor.Surface0;
+            StoreIn.ForeColor = Color.FromArgb(64, 160, 43);
+            StoreIn.ForegroundColor = Catppuccin.CatppuccinColor.Green;
+            StoreIn.Location = new Point(666, 276);
+            StoreIn.Margin = new Padding(5);
+            StoreIn.Name = "StoreIn";
+            StoreIn.Size = new Size(820, 39);
+            StoreIn.TabIndex = 9;
+            // 
+            // CreateBtn
+            // 
+            CreateBtn.BackColor = Color.FromArgb(204, 208, 218);
+            CreateBtn.BackgroundColor = Catppuccin.CatppuccinColor.Surface0;
+            CreateBtn.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
+            CreateBtn.ForeColor = Color.FromArgb(114, 135, 253);
+            CreateBtn.ForegroundColor = Catppuccin.CatppuccinColor.Lavender;
+            CreateBtn.Location = new Point(1069, 722);
+            CreateBtn.Margin = new Padding(5);
+            CreateBtn.Name = "CreateBtn";
+            CreateBtn.Size = new Size(417, 93);
+            CreateBtn.TabIndex = 11;
+            CreateBtn.Text = "Crear nueva tienda";
+            CreateBtn.UseVisualStyleBackColor = false;
+            // 
             // login
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(13F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1044, 590);
+            ClientSize = new Size(1540, 944);
+            Controls.Add(CreateBtn);
+            Controls.Add(catppuccinLabel5);
+            Controls.Add(StoreIn);
             Controls.Add(pictureBox2);
             Controls.Add(pictureBox1);
-            Controls.Add(catppuccinButton1);
+            Controls.Add(LoginBtn);
             Controls.Add(catppuccinLabel4);
             Controls.Add(catppuccinLabel3);
             Controls.Add(catppuccinLabel2);
             Controls.Add(catppuccinLabel1);
-            Controls.Add(catppuccinTextBox2);
-            Controls.Add(catppuccinTextBox1);
+            Controls.Add(PasswordIn);
+            Controls.Add(UserIn);
+            Margin = new Padding(5);
             Name = "login";
             Text = "MicroVentas";
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
@@ -176,14 +234,17 @@
 
         #endregion
 
-        private Catppuccin.Components.CatppuccinTextBox catppuccinTextBox1;
-        private Catppuccin.Components.CatppuccinTextBox catppuccinTextBox2;
+        private Catppuccin.Components.CatppuccinTextBox UserIn;
+        private Catppuccin.Components.CatppuccinTextBox PasswordIn;
         private Catppuccin.Components.CatppuccinLabel catppuccinLabel1;
         private Catppuccin.Components.CatppuccinLabel catppuccinLabel2;
         private Catppuccin.Components.CatppuccinLabel catppuccinLabel3;
         private Catppuccin.Components.CatppuccinLabel catppuccinLabel4;
-        private Catppuccin.Components.CatppuccinButton catppuccinButton1;
+        private Catppuccin.Components.CatppuccinButton LoginBtn;
         private PictureBox pictureBox1;
         private PictureBox pictureBox2;
+        private Catppuccin.Components.CatppuccinLabel catppuccinLabel5;
+        private Catppuccin.Components.CatppuccinTextBox StoreIn;
+        private Catppuccin.Components.CatppuccinButton CreateBtn;
     }
 }
