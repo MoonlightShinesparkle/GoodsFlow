@@ -9,6 +9,7 @@ using System.Text;
 using System.Windows.Forms;
 using GoodsFlow.Catppuccin.Components;
 using static GoodsFlow.UserManager.LoginManager;
+using static GoodsFlow.Data.CommonVerif;
 using GoodsFlow.Data.DataStore;
 using GoodsFlow.UserManager;
 
@@ -46,6 +47,11 @@ namespace GoodsFlow.Windows
             string GivenUserName = GetUserNameOrAdmin();
             string GivenPassword = PasswordIn.Text;
 
+            if (!AreFilled(StoreName, GivenUserName, GivenPassword)) {
+                MessageBox.Show("All fields must be filled","Invalid data");
+                return;
+            }
+
             Store? FetchedStore = SQLDSS.GetStoreData(StoreName);
             if (FetchedStore == null)
             {
@@ -76,7 +82,13 @@ namespace GoodsFlow.Windows
         private void CreateBtn_Click(object sender, EventArgs e)
         {
             string StoreName = GetStoreName();
+            string GivenUserName = GetUserNameOrAdmin();
             string Password = PasswordIn.Text;
+
+            if (!AreFilled(StoreName,GivenUserName,Password)) {
+                MessageBox.Show("All fields must be filled to create a store","Invalid data");
+                return;
+            }
 
             DialogResult Btn = MessageBox.Show("Store ID will be used as store name, it can be changed later in settings", "Store creation", MessageBoxButtons.OKCancel, MessageBoxIcon.Information, MessageBoxDefaultButton.Button2);
 
