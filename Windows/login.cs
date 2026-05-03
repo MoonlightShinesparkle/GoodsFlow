@@ -12,6 +12,7 @@ using static GoodsFlow.UserManager.LoginManager;
 using static GoodsFlow.Data.CommonVerif;
 using GoodsFlow.Data.DataStore;
 using GoodsFlow.UserManager;
+using GoodsFlow.Data.DataStore.Tables;
 
 namespace GoodsFlow.Windows
 {
@@ -41,21 +42,22 @@ namespace GoodsFlow.Windows
             MessageBox.Show("User or password are wrong, try again","Login failed",MessageBoxButtons.OK,MessageBoxIcon.Error);
         }
 
-        private void LoginBtn_Click(object sender, EventArgs e)
+        private async Task LoginBtnLogic()
         {
             string StoreName = GetStoreName();
             string GivenUserName = GetUserNameOrAdmin();
             string GivenPassword = PasswordIn.Text;
 
-            if (!AreFilled(StoreName, GivenUserName, GivenPassword)) {
-                MessageBox.Show("All fields must be filled","Invalid data");
+            if (!AreFilled(StoreName, GivenUserName, GivenPassword))
+            {
+                MessageBox.Show("All fields must be filled", "Invalid data");
                 return;
             }
 
-            Store? FetchedStore = SQLDSS.GetStoreData(StoreName);
+            StoreWrapper? FetchedStore = await SQLDSS.GetStoreData(StoreName);
             if (FetchedStore == null)
             {
-                MessageBox.Show("Store not found","Login failed");
+                MessageBox.Show("Store not found", "Login failed");
                 return;
             }
 
@@ -79,14 +81,20 @@ namespace GoodsFlow.Windows
             // TODO: User logged in, prepare and show dashboard somehow
         }
 
-        private void CreateBtn_Click(object sender, EventArgs e)
+        private async void LoginBtn_Click(object sender, EventArgs e)
+        {
+            await LoginBtnLogic();
+        }
+
+        private async Task CreateBtnLogic()
         {
             string StoreName = GetStoreName();
             string GivenUserName = GetUserNameOrAdmin();
             string Password = PasswordIn.Text;
 
-            if (!AreFilled(StoreName,GivenUserName,Password)) {
-                MessageBox.Show("All fields must be filled to create a store","Invalid data");
+            if (!AreFilled(StoreName, GivenUserName, Password))
+            {
+                MessageBox.Show("All fields must be filled to create a store", "Invalid data");
                 return;
             }
 
@@ -103,9 +111,38 @@ namespace GoodsFlow.Windows
 
             // Delete "#define Debug" to stop this from running
 #if Debug
-            MessageBox.Show($"Trying to create store \"{StoreName}\" with password:{Environment.NewLine}\"{SaveablePassword.Entry}\"{Environment.NewLine}[Salt: {SaveablePassword.Salt}]");
+            MessageBox.Show($"Trying to create {GivenUserName}'s store \"{StoreName}\" with password:{Environment.NewLine}\"{SaveablePassword.Entry}\"{Environment.NewLine}[Salt: {SaveablePassword.Salt}]");
 #endif
             // TODO: Create store
+
+            Store Created = new Store
+            {
+                Name = StoreName,
+                AdminName = GivenUserName,
+                AdminPass = SaveablePassword.Entry,
+                AdminSalt = SaveablePassword.Salt
+            };
+
+            try
+            {
+                Supabase.Postgrest.Responses.ModeledResponse<Store> Result = await SQLDSS.SupabaseConnection.From<Store>().Insert(Created);
+
+                MessageBox.Show("Data saved successfully","Store creation");
+
+                Store Gotten = Result.Models.FirstOrDefault() ?? Created;
+
+                StoreWrapper Loaded = await SQLDSS.LoadStoreDataAsync(Gotten);
+            }
+            catch (Exception E)
+            {
+                MessageBox.Show($"Could not create store:{Environment.NewLine}{E.Message}", "Store creation");
+                return;
+            }
+        }
+
+        private async void CreateBtn_Click(object sender, EventArgs e)
+        {
+            await CreateBtnLogic();
         }
     }
 }

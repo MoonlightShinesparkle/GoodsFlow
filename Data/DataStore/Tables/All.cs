@@ -1,4 +1,5 @@
-﻿using Supabase.Postgrest.Attributes;
+﻿using GoodsFlow.UserManager;
+using Supabase.Postgrest.Attributes;
 using Supabase.Postgrest.Models;
 
 namespace GoodsFlow.Data.DataStore.Tables;
@@ -10,7 +11,7 @@ public class Store : BaseModel
     public int ID { get; set; }
 
     [Column("store_name")]
-    public required string Name { get; set; }
+    public string? Name { get; set; }
 
     [Column("store_location")]
     public string? Location { get; set; }
@@ -19,13 +20,13 @@ public class Store : BaseModel
     public string? Contact { get; set; }
 
     [Column("admin_name")]
-    public required string AdminName { get; set; }
+    public string? AdminName { get; set; }
 
     [Column("admin_password")]
-    public required string AdminPass { get; set; }
+    public string? AdminPass { get; set; }
 
     [Column("store_salt")]
-    public required string AdminSalt { get; set; }
+    public string? AdminSalt { get; set; }
 }
 
 [Table("USER")]
@@ -35,13 +36,13 @@ public class User : BaseModel
     public int ID { get; set; }
 
     [Column("user_name")]
-    public required string Name { get; set; }
+    public string? Name { get; set; }
 
     [Column("user_password")]
-    public required string Password { get; set; }
+    public string? Password { get; set; }
 
     [Column("user_salt")]
-    public required string Salt { get; set; }
+    public string? Salt { get; set; }
 
     [Column("store_id")]
     public int StoreID { get; set; }
@@ -130,7 +131,7 @@ public class Product
     public int ID { get; set; }
 
     [Column("product_name")]
-    public required string Name { get; set; }
+    public string? Name { get; set; }
 
     [Column("product_price")]
     public decimal Price { get; set; }
@@ -152,7 +153,7 @@ public class Provider
     public int ID { get; set; }
 
     [Column("provider_name")]
-    public required string Name { get; set; }
+    public string? Name { get; set; }
 
     [Column("provider_contact")]
     public string? Contact { get; set; }
@@ -165,7 +166,7 @@ public class LossReport
     public int ID { get; set; }
 
     [Column("preport_reason")]
-    public required string Reason { get; set; }
+    public string? Reason { get; set; }
 
     [Column("preport_datetime")]
     public DateTime Created { get; set; }
@@ -193,5 +194,5 @@ public class Clasificaions
     public int ID { get; set; }
 
     [Column("clasif_name")]
-    public required string Name { get; set; }
+    public string? Name { get; set; }
 }

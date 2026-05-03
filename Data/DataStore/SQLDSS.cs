@@ -1,10 +1,11 @@
 ﻿#define Debug
-using System;
-using System.Collections.Generic;
-using System.Net.NetworkInformation;
-using System.Text;
+using GoodsFlow.Data.DataStore.Tables;
 using GoodsFlow.UserManager;
 using Supabase;
+using Supabase.Postgrest.Attributes;
+using System;
+using System.Collections.Generic;
+using System.Text;
 
 namespace GoodsFlow.Data.DataStore;
 
@@ -29,40 +30,59 @@ public class SQLDSS
     /// </summary>
     /// <param name="StoreName">Name of the store to fetch data from</param>
     /// <returns>A Store with loaded data if found, null if no data was found</returns>
-    public static Store? GetStoreData(string StoreName)
+    public static async Task<StoreWrapper?> GetStoreData(string StoreName)
     {
-        Store New = new(StoreName);
-        bool StoreExists = true;
 
-        // TODO: Fetch data from static connection
-        // TODO: If data couldn't be fetched, set StoreExists to false
+        Supabase.Postgrest.Responses.ModeledResponse<Store> Stores = await SupabaseConnection.From<Store>().Where(
+            S => S.Name == StoreName
+        ).Get();
 
-        if (!StoreExists)
+        Store? Found = Stores.Models.FirstOrDefault();
+
+        if (Found == null)
         {
             return null;
         }
 
-        // TODO: Load user data into store
-        /*
-            Loading user data includes the name, the hashed password and its assigned salt
-            IMPORTANT: the store has a password tied to it, this password has to be tied to "Admin"
-         */
+        return await LoadStoreDataAsync(Found);
+    }
 
-#if Debug
-        New.Users.Add(new(StoreName,"Moonlight", "f693ee9f422e3ce09e28761ea2e0154fa9abb2f05551b154d2c1dad2dba16b2e", "062e2462bfc8e1f62609"));
-#endif
+    public static async Task<StoreWrapper> LoadStoreDataAsync(Store Given)
+    {
+        StoreWrapper Loadable = new(Given);
+        Loadable.Users.Add(new(Loadable.ID, Loadable.AdminName, Loadable.AdminPass, Loadable.AdminSalt));
 
-        return New;
+        Supabase.Postgrest.Responses.ModeledResponse<User> Users = await SupabaseConnection.From<User>().Where(
+            U => U.StoreID == Loadable.ID
+        ).Get();
+
+        foreach (User Usr in Users.Models)
+        {
+            Loadable.Users.Add(new(Usr));
+        }
+
+        return Loadable;
     }
 }
 
-public class Store(string Name)
+/// <summary>
+/// Wrapper for a store to allow additional info to be accessed
+/// </summary>
+/// <param name="Str">Store to wrap around of</param>
+public class StoreWrapper(Store Str)
 {
+    public int ID = Str.ID;
+    public string Name = Str.Name ?? "";
+    public string? Location = Str.Location;
+    public string? Contact = Str.Contact;
+    public string AdminName = Str.AdminName ?? "";
+    public string AdminPass = Str.AdminPass ?? "";
+    public string AdminSalt = Str.AdminSalt ?? "";
+
     /// <summary>
     /// Contains all user information
     /// </summary>
     public List<UserInfo> Users = [];
-    public string Name = Name;
 
     // TODO: Add other data things to save, add as necesary, ensure it gets loaded in GetStoreData in SQLDSS
 
@@ -73,7 +93,8 @@ public class Store(string Name)
     /// <returns>Loaded UserInfo if user is found, else returns null</returns>
     public UserInfo? GetUser(string Name)
     {
-        foreach (UserInfo Info in Users) { 
+        foreach (UserInfo Info in Users)
+        {
             if (Info.NameData == Name)
             {
                 return Info;
