@@ -79,6 +79,7 @@ namespace GoodsFlow.Windows
 #endif
 
             // TODO: User logged in, prepare and show dashboard somehow
+            // Make sure the store wrapper is stored globally before killing the form, same for password .w."
         }
 
         private async void LoginBtn_Click(object sender, EventArgs e)
@@ -113,7 +114,6 @@ namespace GoodsFlow.Windows
 #if Debug
             MessageBox.Show($"Trying to create {GivenUserName}'s store \"{StoreName}\" with password:{Environment.NewLine}\"{SaveablePassword.Entry}\"{Environment.NewLine}[Salt: {SaveablePassword.Salt}]");
 #endif
-            // TODO: Create store
 
             Store Created = new Store
             {
@@ -138,6 +138,9 @@ namespace GoodsFlow.Windows
                 MessageBox.Show($"Could not create store:{Environment.NewLine}{E.Message}", "Store creation");
                 return;
             }
+
+            // TODO: User logged in, prepare and show dashboard somehow
+            // Make sure the store wrapper is stored globally before killing the form, same for password .w."
         }
 
         private async void CreateBtn_Click(object sender, EventArgs e)
