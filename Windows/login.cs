@@ -1,12 +1,5 @@
 ﻿#define Debug
 
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
-using System.Windows.Forms;
 using GoodsFlow.Catppuccin.Components;
 using static GoodsFlow.UserManager.LoginManager;
 using static GoodsFlow.Data.CommonVerif;
@@ -80,6 +73,11 @@ namespace GoodsFlow.Windows
 
             // TODO: User logged in, prepare and show dashboard somehow
             // Make sure the store wrapper is stored globally before killing the form, same for password .w."
+            Globals.StoreData = FetchedStore;
+            Globals.UserData = FetchedUser;
+            Globals.GivenPassword = GivenPassword;
+
+            Close();
         }
 
         private async void LoginBtn_Click(object sender, EventArgs e)
@@ -132,6 +130,14 @@ namespace GoodsFlow.Windows
                 Store Gotten = Result.Models.FirstOrDefault() ?? Created;
 
                 StoreWrapper Loaded = await SQLDSS.LoadStoreDataAsync(Gotten);
+
+                UserInfo? Fetched = Loaded.GetUser(GivenUserName);
+
+                Globals.StoreData = Loaded;
+                Globals.UserData = Fetched;
+                Globals.GivenPassword = Password;
+
+                Close();
             }
             catch (Exception E)
             {

@@ -31,6 +31,11 @@ namespace GoodsFlow
             Timer.Stop();
             //perdon moon lo cambie para trabajar jeje
             Application.Run(new login());
+
+            if (Globals.IsLoggedIn())
+            {
+                Application.Run(new Dashboard());
+            }
         }
     }
 }
