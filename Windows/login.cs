@@ -78,7 +78,7 @@ namespace GoodsFlow.Windows
             string StoreName = GetStoreName();
             string Password = PasswordIn.Text;
 
-            DialogResult Btn = MessageBox.Show("Creating a store only takes in the store name and password, the user is automatically set to \"Admin\"", "Store creation", MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button2);
+            DialogResult Btn = MessageBox.Show("Store ID will be used as store name, it can be changed later in settings", "Store creation", MessageBoxButtons.OKCancel, MessageBoxIcon.Information, MessageBoxDefaultButton.Button2);
 
             if (Btn == DialogResult.Cancel)
             {
