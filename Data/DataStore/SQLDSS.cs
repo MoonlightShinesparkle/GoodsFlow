@@ -1,17 +1,28 @@
 ﻿#define Debug
 using System;
 using System.Collections.Generic;
+using System.Net.NetworkInformation;
 using System.Text;
 using GoodsFlow.UserManager;
+using Supabase;
 
 namespace GoodsFlow.Data.DataStore;
 
 public class SQLDSS
 {
-    // TODO: SQL server connection and functions
-    public const string ConnectionString = "";
-    // TODO: Add static connection
-    // TODO: Add static connection initializer, run within Program.cs while loading configs
+    private static string ConnectionString = "https://tlufmhzpernsisoqycsg.supabase.co";
+    private static string AnonKey = "sb_publishable_9FIaH19p3eDkAeYon_FtbA_U4NkdD3F";
+
+    public static Client SupabaseConnection = new(ConnectionString, AnonKey, new SupabaseOptions
+    {
+        AutoRefreshToken = true,
+        AutoConnectRealtime = false
+    });
+
+    public static async Task InitializeConnection()
+    {
+        await SupabaseConnection.InitializeAsync();
+    }
 
     /// <summary>
     /// Fetches data from a store and stores into an object for its usage
