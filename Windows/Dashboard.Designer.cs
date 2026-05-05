@@ -32,16 +32,18 @@
             // 
             // Dashboard
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1057, 654);
+            ClientSize = new Size(1321, 818);
             Margin = new Padding(2);
             Name = "Dashboard";
-            Text = "Form1";
+            Text = "GFlow";
             Load += Dashboard_Load;
             ResumeLayout(false);
         }
 
         #endregion
+
+        private Guna.UI2.WinForms.Guna2Button guna2Button1;
     }
 }
